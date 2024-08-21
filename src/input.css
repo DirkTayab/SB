@@ -6,7 +6,10 @@
 
 @layer base {
   body {
-    @apply font-poppins overflow-x-hidden;
+    @apply font-poppins overflow-y-scroll;
+  }
+  body.open {
+    @apply overflow-hidden;
   }
   .container {
     @apply max-w-[1600px] w-full px-4 mx-auto;
@@ -15,16 +18,17 @@
     @apply text-5xl;
   }
   h2 {
-    @apply text-2xl;
+    @apply text-3xl;
   }
   h3 {
-    @apply text-xl;
+    @apply text-2xl;
   }
   h4 {
-    @apply text-sm;
+    @apply text-base;
   }
-  p {
-    @apply text-sm;
+  p,
+  a {
+    @apply text-sm tracking-tighter;
   }
 
   .toggle__menu {
@@ -34,10 +38,10 @@
     @apply content-["*"] bg-primary w-5 h-[.2rem] rounded-lg ease-in-out duration-700;
   }
   .header__nav {
-    @apply bg-white flex flex-col gap-5 top-[5.05rem] fixed py-5 font-semibold duration-700 right-[-100%];
+    @apply bg-white z-50 flex flex-col gap-5 top-[5.05rem] fixed py-5 font-semibold duration-700 right-[-100%] overflow-y-hidden w-[80%] h-full;
   }
   .header__nav.open {
-    @apply right-0 z-50 overflow-y-hidden w-[80%] h-full;
+    @apply right-0 z-50 overflow-y-hidden w-[80%] h-full fixed;
   }
   .toggle__menu.open span {
     @apply content-["*"] bg-primary w-5 h-[.2rem] rounded-lg ease-in-out duration-700;
@@ -46,19 +50,19 @@
     @apply hidden;
   }
   .backdrop.open {
-    @apply block fixed top-[5.1rem] left-0 h-screen w-full backdrop-blur-[5px] duration-700 overflow-y-hidden;
+    @apply block fixed top-[5.1rem] left-0 h-screen w-full backdrop-blur-[5px] duration-1000 overflow-y-hidden;
   }
   .toggle__menu.open span:first-child {
     transform: translate(0, 10px) rotate(225deg);
-    transition: all .7s ease-in-out;
+    transition: all 0.7s ease-in-out;
   }
   .toggle__menu.open span:nth-child(2) {
     opacity: 0;
-    transition: all .7s ease-in-out;
+    transition: all 0.7s ease-in-out;
   }
   .toggle__menu.open span:last-child {
     transform: translate(0, -5px) rotate(-225deg);
-    transition: all .7s ease-in-out;
+    transition: all 0.7s ease-in-out;
   }
 }
 
@@ -66,16 +70,110 @@
   .btn {
     @apply py-2 px-4 bg-transparent border-transparent rounded-xl shadow-[0_8px_24px_-15px_rgba(149,157,165,0.2)];
   }
-  .btn.bgclr{
+  .btn.bgclr {
     @apply bg-transparent text-black border border-black rounded-3xl hover:bg-black/20 px-5 hover:duration-300;
   }
-  .btn.bgdark{
+  .btn.bgdark {
     @apply bg-black text-white border border-black rounded-3xl hover:bg-black/20 px-5 hover:duration-300;
   }
-  .btn.bglight{
-    @apply bg-transparent text-white border border-white rounded-3xl hover:bg-black/20 px-5 hover:duration-300;
+  .btn.bglight {
+    @apply bg-transparent text-white border border-white rounded-3xl hover:bg-black/20 px-3 hover:duration-300;
+  }
+  .btn.bggreen {
+    @apply bg-secondary text-white border border-transparent rounded-3xl hover:bg-primary/90 px-3 hover:duration-300;
+  }
+  .btn.icons {
+    @apply rounded-full px-[.65rem] py-[.5rem] bg-black text-white border-white text-base border-0 hover:border-[1rem] hover:border-red-600 hover:gap-0 transition-all;
+  }
+  .favorites__card {
+    @apply bg-tertiary items-center text-center flex flex-col gap-5 py-10;
+  }
+  .favorites__tab a i {
+    @apply text-gold text-xs;
+  }
+  .favorites__tab a {
+    @apply pb-3;
+  }
+  .button {
+    @apply bg-transparent border-b-4 border-transparent rounded-none w-full ease-in-out duration-700 cursor-pointer;
+  }
+  .button.active {
+    @apply bg-transparent border-b-4 border-secondary rounded-none w-full ease-in-out duration-700 cursor-pointer;
+  }
+  .extra__card img {
+    @apply w-[8rem] h-full;
+  }
+  .extra__card {
+    @apply flex gap-4;
+  }
+  .extra__details {
+    @apply flex flex-col gap-6;
+  }
+  .stars__card {
+    @apply flex gap-4;
+  }
+  .stars__card img {
+    @apply w-[7rem] h-full;
+  }
+  .stars__details {
+    @apply flex flex-col gap-4;
+  }
+  .stars__subtitle {
+    @apply pb-[2rem];
+  }
+  .rewards__card img {
+    @apply w-[8rem] h-full;
+  }
+  .rewards__card {
+    @apply flex gap-4;
+  }
+  .rewards__wrapper {
+    @apply flex flex-col gap-4;
+  }
+  .rewards__button {
+    @apply text-center pt-12;
+  }
+  .restrictions__wrapper h4 {
+    @apply pt-4;
+  }
+  .restrictions__wrapper p {
+    @apply tracking-tight;
+  }
+  .footer__content h4 {
+    @apply flex font-semibold py-8 justify-between;
+  }
+  .footer__content ul li a {
+    @apply text-black/60;
+  }
+  .footer__content i {
+    @apply text-xl;
+  }
+  .footer__content ul li {
+    @apply pb-4;
+  }
+  .footer__item h4,
+  .footer__item i {
+    @apply px-3 py-2 flex duration-500 justify-between items-center cursor-pointer;
+  }
+  .footer__item ul {
+    @apply h-auto max-h-0 overflow-hidden duration-500 text-justify px-3;
+  }
+  .footer__item i.open {
+    @apply rotate-[-180deg] ease-out duration-500;
+  }
+  .footer__item ul.open {
+    @apply max-h-[50rem] ease-out duration-500 p-3;
+  }
+  .footer__links ul li a {
+    @apply hover:underline;
   }
 }
 
 @layer utilities {
+  .favorites__card {
+    @apply hidden;
+  }
+  .favorites__card.active {
+    @apply block;
+  }
 }

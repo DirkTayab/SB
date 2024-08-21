@@ -10,10 +10,13 @@ module.exports = {
         primary: "#1e3932",
         secondary: "#00754a",
         tertiary: "#d4e9e2",
+        gold: "#cba258",
+        greenlight: "#f1f8f5",
+        gray: "#f2f0eb",
+        grayulet: "#f9f9f9",
       },
       backgroundImage: {
-        bgReward:
-          "linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.6)),url('../img/xl-hero-desktop_2021')",
+        bgReward: "url('../img/bgmobile.webp')",
       },
     },
   },
