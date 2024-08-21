@@ -167,6 +167,12 @@
   .footer__links ul li a {
     @apply hover:underline;
   }
+  .footer__socials i{
+    @apply  bg-black rounded-full p-2 text-white w-10 h-10 text-[24px] text-center scale-75 ;
+  }
+  .footer__socials span{
+    @apply content-["*"] z-50 w-10 h-10 block absolute bg-transparent rounded-full scale-75 hover:scale-100 hover:bg-black/20 ease-in-out duration-200;
+  }
 }
 
 @layer utilities {
