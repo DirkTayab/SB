@@ -38,7 +38,13 @@
     @apply content-["*"] bg-primary w-5 h-[.2rem] rounded-lg ease-in-out duration-700;
   }
   .header__nav {
-    @apply bg-white z-50 flex flex-col gap-5 top-[5.05rem] fixed py-5 font-semibold duration-700 right-[-100%] overflow-y-hidden w-[80%] h-full;
+    @apply bg-white z-50 flex flex-col lg:flex-row gap-5 top-[5.05rem] fixed py-5 font-semibold duration-700 right-[-100%] overflow-y-hidden w-[80%] h-full lg:static lg:gap-[51rem] lg:w-screen lg:h-10 lg:items-center lg:py-0;
+  }
+  .header__left ul {
+    @apply lg:flex-row lg:border-b-0;
+  }
+  .header__right {
+    @apply lg:flex-row flex-col-reverse lg:items-center;
   }
   .header__nav.open {
     @apply right-0 z-50 overflow-y-hidden w-[80%] h-full fixed;
@@ -85,8 +91,24 @@
   .btn.icons {
     @apply rounded-full px-[.65rem] py-[.5rem] bg-black text-white border-white text-base border-0 hover:border-[1rem] hover:border-red-600 hover:gap-0 transition-all;
   }
+  .banner__wrapper {
+    @apply flex-col items-center text-center lg:items-start lg:text-start lg:py-[18rem] lg:scale-125 lg:pl-[10rem];
+  }
+  .mrewardSteps {
+    @apply flex gap-4 lg:flex-col lg:items-center lg:flex-row;
+  }
+
   .favorites__card {
-    @apply bg-tertiary items-center text-center flex flex-col gap-5 py-10;
+    @apply bg-tertiary items-center flex flex-col lg:flex-row gap-5 py-10 lg:w-[40rem] lg:mx-auto;
+  }
+  .favorites__card--text {
+    @apply flex flex-col lg:text-start gap-4 text-center;
+  }
+  .favorites__card--text p {
+    @apply text-xs;
+  }
+  .favorites__card img {
+    @apply w-[20rem];
   }
   .favorites__tab a i {
     @apply text-gold text-xs;
@@ -94,23 +116,50 @@
   .favorites__tab a {
     @apply pb-3;
   }
+  .favorites__tab {
+    @apply flex items-center justify-around text-center w-full lg:w-[30rem] mx-auto bg-greenlight relative;
+  }
+  .favorites__tab:after {
+    @apply content-[""] w-[97px] h-[0.25rem] bg-secondary absolute bottom-0 duration-500;
+  }
+  .favorites__tab:after.tab-1-underline {
+    @apply left-[0%];
+  }
+  .favorites__tab:after.tab-2-underline {
+    @apply left-[20%];
+  }
+  .favorites__tab:after.tab-3-underline {
+    @apply left-[40%];
+  }
+  .favorites__tab:after.tab-4-underline {
+    @apply left-[60%];
+  }
+  .favorites__tab:after.tab-5-underline {
+    @apply left-[80%];
+  }
   .button {
-    @apply bg-transparent border-b-4 border-transparent rounded-none w-full ease-in-out duration-700 cursor-pointer;
+    @apply bg-transparent  rounded-none w-full ease-in-out duration-700 cursor-pointer;
   }
   .button.active {
-    @apply bg-transparent border-b-4 border-secondary rounded-none w-full ease-in-out duration-700 cursor-pointer;
+    @apply bg-transparent  rounded-none w-full ease-in-out duration-700 cursor-pointer;
+  }
+  .extra__wrapper {
+    @apply flex flex-col lg:flex-row items-center gap-[4rem] lg:justify-center;
   }
   .extra__card img {
     @apply w-[8rem] h-full;
   }
   .extra__card {
-    @apply flex gap-4;
+    @apply flex gap-4 flex items-center lg:flex-col lg:w-[20rem];
   }
   .extra__details {
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-6 lg:text-center;
+  }
+  .stars__section {
+    @apply lg:flex lg:gap-[8rem];
   }
   .stars__card {
-    @apply flex gap-4;
+    @apply flex gap-4 lg:w-[25rem];
   }
   .stars__card img {
     @apply w-[7rem] h-full;
@@ -125,7 +174,7 @@
     @apply w-[8rem] h-full;
   }
   .rewards__card {
-    @apply flex gap-4;
+    @apply flex gap-4 lg:flex-col lg:text-center lg:items-center lg:w-[25rem];
   }
   .rewards__wrapper {
     @apply flex flex-col gap-4;
@@ -134,13 +183,13 @@
     @apply text-center pt-12;
   }
   .restrictions__wrapper h4 {
-    @apply pt-4;
+    @apply pb-4 pt-8;
   }
   .restrictions__wrapper p {
     @apply tracking-tight;
   }
   .footer__content h4 {
-    @apply flex font-semibold py-8 justify-between;
+    @apply flex  py-8 justify-between;
   }
   .footer__content ul li a {
     @apply text-black/60;
@@ -153,33 +202,46 @@
   }
   .footer__item h4,
   .footer__item i {
-    @apply px-3 py-2 flex duration-500 justify-between items-center cursor-pointer;
+    @apply px-3 py-2 flex duration-500 justify-between items-center cursor-pointer lg:pointer-events-none;
+  }
+  .footer__item h4 {
+    @apply lg:pb-8;
+  }
+  .footer__item i {
+    @apply lg:hidden;
+  }
+  .footer__item {
+    @apply lg:max-w-[15rem];
   }
   .footer__item ul {
-    @apply h-auto max-h-0 overflow-hidden duration-500 text-justify px-3;
+    @apply h-auto max-h-0 overflow-hidden duration-500 text-justify px-3 lg:max-h-full;
+  }
+  .footer__item ul li a {
+    @apply hover:text-black ease-in-out duration-300;
+  }
+
+  .footer__links ul li a {
+    @apply hover:underline;
+  }
+  .footer__socials i {
+    @apply bg-black rounded-full p-2 text-white w-10 h-10 text-[24px] text-center scale-75;
+  }
+  .footer__socials span {
+    @apply content-["*"] z-50 w-10 h-10 block absolute bg-transparent rounded-full scale-75 hover:scale-100 hover:bg-black/20 ease-in-out duration-200;
+  }
+}
+
+@layer utilities {
+  .favorites__content {
+    @apply hidden;
+  }
+  .favorites__content.active {
+    @apply block duration-500;
   }
   .footer__item i.open {
     @apply rotate-[-180deg] ease-out duration-500;
   }
   .footer__item ul.open {
     @apply max-h-[50rem] ease-out duration-500 p-3;
-  }
-  .footer__links ul li a {
-    @apply hover:underline;
-  }
-  .footer__socials i{
-    @apply  bg-black rounded-full p-2 text-white w-10 h-10 text-[24px] text-center scale-75 ;
-  }
-  .footer__socials span{
-    @apply content-["*"] z-50 w-10 h-10 block absolute bg-transparent rounded-full scale-75 hover:scale-100 hover:bg-black/20 ease-in-out duration-200;
-  }
-}
-
-@layer utilities {
-  .favorites__card {
-    @apply hidden;
-  }
-  .favorites__card.active {
-    @apply block;
   }
 }

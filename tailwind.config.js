@@ -17,6 +17,8 @@ module.exports = {
       },
       backgroundImage: {
         bgReward: "url('../img/bgmobile.webp')",
+        bgRewardlg: "url('../img/xl-hero-desktop_2021.png')",
+        bgRewards: "url('../img/wave.png')",
       },
     },
   },

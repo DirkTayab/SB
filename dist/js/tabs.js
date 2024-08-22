@@ -1,5 +1,7 @@
 const tabs = document.querySelectorAll(".button");
-const contents = document.querySelectorAll(".favorites__card");
+const contents = document.querySelectorAll(".favorites__content");
+const underlines = document.querySelector(".favorites__tab");
+recentUnderline = `tab-1-underline`;
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -8,6 +10,10 @@ tabs.forEach((tab) => {
     const activeContent = document.querySelector(`#${tab.id}-content`);
     removeActiveContent();
     activeContent.classList.add("active");
+
+    underlines.classList.remove(recentUnderline);
+    underlines.classList.add(`${tab.id}-underline`);
+    recentUnderline = `${tab.id}-underline`;
   });
 });
 
